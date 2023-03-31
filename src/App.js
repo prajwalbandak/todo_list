@@ -3,19 +3,17 @@ import "./App.css"
 export default class App extends Component {
   constructor(props){
     super(props);
-
     this.state = {
       userName:"prajwal",
       todoItems : [
         {action : 'Buy Milk', done:true},
         {action : 'Dentist at 5PM', done:false},
-        {action : 'Go to Gym', done:false}
-        
+        {action : 'Go to Gym', done:false}        
       ],
       newToDo:"",
-    }
-   
+    }   
   }
+	
   updateValue = (event) =>{
     this.setState({newToDo: event.target.value})
   }
@@ -25,11 +23,7 @@ export default class App extends Component {
       <tr key={item.action}>
         <td>{item.action}</td>
         <td> 
-          <input type="checkbox"
-            checked={item.done}
-            onChange = {()=>this.toggleDone(item)}
-          >
-
+          <input type="checkbox" checked={item.done} onChange = {()=>this.toggleDone(item)} >
           </input>
         </td>
       </tr>
