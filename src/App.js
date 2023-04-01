@@ -12,12 +12,10 @@ export default class App extends Component {
       ],
       newToDo:"",
     }   
-  }
-	
+  }	
   updateValue = (event) =>{
     this.setState({newToDo: event.target.value})
   }
-
   todoRows = () => {
     return this.state.todoItems.map((item) => (
       <tr key={item.action}>
@@ -29,7 +27,6 @@ export default class App extends Component {
       </tr>
     ));
   };
-
   newToDo = () =>{
     return this.setState({
       todoItems : [
@@ -38,15 +35,12 @@ export default class App extends Component {
       ]
     })
   }
-
   toggleDone = (todo) =>
 		this.setState({
 			todoItems: this.state.todoItems.map((item) =>
 				item.action === todo.action ? { ...item, done: !item.done } : item
 			),
 		});
-
-
      render() {
     return (
       <div className="container">
@@ -57,19 +51,14 @@ export default class App extends Component {
             </h2>
             </div>
            <div className="col-12">
-					<input
-						className="form-control"
-						value={this.state.newToDo}
-						onChange={this.updateValue}
-					/>
-          <button className="btn btn-primary"  onClick={this.newToDo}
-          >Add</button>
-          
-
-            </div>
-       
-
-            <div className="col-12">
+		<input
+			className="form-control"
+			value={this.state.newToDo}
+			onChange={this.updateValue}				
+		/>
+          	<button className="btn btn-primary"  onClick={this.newToDo}>Add</button>
+            </div>    
+	    <div className="col-12">
               <table className="table">
                 <thead>
                   <tr>
@@ -79,10 +68,7 @@ export default class App extends Component {
                 </thead>
                 <tbody>{this.todoRows()}</tbody>
               </table>
-            </div>
-
-
-         
+            </div>         
         </div>
       </div>
     );
